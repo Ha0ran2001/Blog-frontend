@@ -1,3 +1,3 @@
 # Blog-frontend
 
-# React + Vite + TailWindCss
+# React + Vite + tailwindcss
