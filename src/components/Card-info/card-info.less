@@ -1,0 +1,63 @@
+@font-face {
+  font-family: 'iconfont';  /* Project id 2506869 */
+  src: url('//at.alicdn.com/t/font_2506869_daibbprswwr.woff2?t=1627092678604') format('woff2'),
+       url('//at.alicdn.com/t/font_2506869_daibbprswwr.woff?t=1627092678604') format('woff'),
+       url('//at.alicdn.com/t/font_2506869_daibbprswwr.ttf?t=1627092678604') format('truetype');
+}
+.avatar {
+  transition: transform 0.5s;
+}
+.avatar:hover {
+  transform: rotate(360deg);
+  
+}
+
+.github{
+  display: inline-block;
+  font-family:"iconfont" !important;
+  font-size:16px;
+  font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+  -moz-osx-font-smoothing: grayscale;
+  cursor: pointer;
+  margin-top: 4px;
+  transition: transform 0.3s;
+}
+
+.github:hover {
+  transform: rotate(720deg);
+}
+
+.typing {
+  font-size: 16px;
+  width: 10em;
+  white-space: nowrap;
+  border-right: 2px solid transparent;
+  animation: typing 3.5s steps(10, end), blink-caret .75s step-end infinite;
+  overflow: hidden;
+}
+
+/* 打印效果 */
+@keyframes typing {
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 10em;
+  }
+}
+
+/* 光标闪啊闪 */
+@keyframes blink-caret {
+
+  from,
+  to {
+    box-shadow: 1px 0 0 0 transparent;
+  }
+
+  50% {
+    box-shadow: 1px 0 0 0;
+  }
+}

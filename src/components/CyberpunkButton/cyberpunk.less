@@ -1,0 +1,115 @@
+
+.follow-me,
+.follow-me::after {
+  width: 160px;
+  height: 30px;
+  font-size: 16px;
+  /* linear-gradient(direction, color1, color2) */
+  background: linear-gradient(45deg, transparent 5%, #FF013C 5%);
+  border: 0;
+  color: #fff;
+  /* 字符间距 */
+  letter-spacing: 3px;
+  line-height: 30px;
+  /* 当给出两个值 这两个值会被当做 x 偏移量和 y 偏移量 */
+  /* 当给出第三个值 第三个值会被当作模糊度 */
+  /* 当给出第四个值 第四个值会被当作阴影面积 */
+  /* inset 关键字会使得阴影落在盒子内部 */
+  /* 关键字color就是颜色 */
+  box-shadow: 6px 0px 0px #00E6F6;
+  outline: transparent;
+  position: relative;
+}
+
+.follow-me::after {
+  /* clip-path 使用裁剪方式创建元素的可显示区域 */
+  /* inset()方法用于定义一个矩形，可以传入5个参数，分别对应top, right, bottom, left */
+  /* 的裁剪位置以及 round 和 radius */
+  --slice-0: inset(50% 50% 50% 50% 50%);
+  --slice-1: inset(80% -6px 0 0);
+  --slice-2: inset(50% -6px 30% 0);
+  --slice-3: inset(10% -6px 85% 0);
+  --slice-4: inset(40% -6px 43% 0);
+  --slice-5: inset(80% -6px 5% 0);
+  content: 'Follow Me';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: linear-gradient(45deg, transparent 3%, #00E6F6 3%, #00E6F6 5%, #FF013C 5%);
+  text-shadow: -1px -1px 0px #F8F005, 1px 1px 0px #00E6F6;
+  clip-path: var(--slice-0);
+}
+
+.follow-me:hover::after {
+  animation: 1s glitch;
+  /* setps()功能符可以让动画不连续 */
+  /* setps(number, position(start/end)) */
+  /* number 表示把动画分成了几段 */
+  /* end 默认值 表示戛然而止 */
+  /* start 表示直接开始 */
+  /* 一切都是反的！start不是开始，而是结束；end不是结束，而是开始。 */
+  animation-timing-function: steps(2, end);
+}
+
+@keyframes glitch {
+  0% {
+    clip-path: var(--slice-1);
+    transform: translate(-20px, -10px);
+  }
+
+  10% {
+    clip-path: var(--slice-3);
+    transform: translate(10px, 10px);
+  }
+
+  20% {
+    clip-path: var(--slice-1);
+    transform: translate(-10px, 10px);
+  }
+
+  30% {
+    clip-path: var(--slice-3);
+    transform: translate(0px, 5px);
+  }
+
+  40% {
+    clip-path: var(--slice-2);
+    transform: translate(-5px, 0px);
+  }
+
+  50% {
+    clip-path: var(--slice-3);
+    transform: translate(5px, 0px);
+  }
+
+  60% {
+    clip-path: var(--slice-4);
+    transform: translate(5px, 10px);
+  }
+
+  70% {
+    clip-path: var(--slice-2);
+    transform: translate(-10px, 10px);
+  }
+
+  80% {
+    clip-path: var(--slice-5);
+    transform: translate(20px, -10px);
+  }
+
+  90% {
+    clip-path: var(--slice-1);
+    transform: translate(-10px, 0px);
+  }
+
+  100% {
+    clip-path: var(--slice-1);
+    transform: translate(0);
+  }
+}
+
+
+// 来自 icss，大佬 coco 

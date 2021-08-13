@@ -1,0 +1,44 @@
+
+header {
+  max-height: 100vh;
+  position: relative;
+}
+
+
+header > div {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+
+  --offset: 0px;
+}
+
+.message-title {
+  position: absolute;
+  top: 40vh;
+  left: 46vw;
+  color: #fff;
+  font-size: 24px;
+}
+
+.message-input {
+  position: absolute;
+  top: 45vh;
+  left: 45vw;
+  margin-top: 20px;
+  background-color: transparent;
+  border: 1px solid #fff;
+  border-radius: 10px;
+  outline: none;
+  caret-color:#fff;
+  color: #fff;
+}
+
+canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
