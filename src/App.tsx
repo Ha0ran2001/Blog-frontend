@@ -31,7 +31,6 @@ function App() {
           <Route path='/categoryItem/:name/:id' ><CategoryItem /></Route>
           <Route path='/aboutme' ><AboutMe /></Route>
           <Route path='/message' ><Message /></Route>
-
         </Switch>
         <Footer />
       </div>

@@ -16,7 +16,7 @@ const Footer: React.FC<FooterProps> = () => {
         {/* <canvas ref={heart} width="16" height="16" /> */}
         <span>Ha0ran</span>
       </div>
-      <div className='text-gray-400 hidden sm:block'>使用技术：从vite + tailwindcss 到 nextjs 到 vite + tailwindcss</div>
+      <div className='text-gray-400 hidden sm:block'>使用技术：vite + tailwindcss</div>
     </div>
   );
 }

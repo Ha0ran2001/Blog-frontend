@@ -47,8 +47,8 @@ const BlogDetail = () => {
           {/* 个人信息 */}
           <CardInfo />
           <Affix offsetTop={100} className="hidden md:block md:mt-5">
-            <div className='comm-box'>
-              <div className='nav-title'>文章目录</div>
+            <div className='bg-white py-4 px-1 bg-opacity-50'>
+              <div className=' text-gray-500 text-xl ml-2'>目录</div>
               <div>
                 {tocify}
               </div>

@@ -1,6 +1,7 @@
 import marked from 'marked';
 import hljs from 'highlightjs';
 import 'highlightjs/styles/monokai-sublime.css';
+// import 'highlightjs/styles/atom-one-dark.css';
 import Tocify from '../components/tocify';
 
 export const toBeMarkdown = (content: string) => {

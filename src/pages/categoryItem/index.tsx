@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useParams, useHistory } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { Timeline } from 'antd';
 import moment from 'moment';
 
@@ -12,17 +12,23 @@ export interface CategoryItemProps {
 
 }
 
+// 由于useParams()返回的是一个对象，直接提取属性会提示不存在这个属性
+// 于是定义一个接口约定参数
+interface RouteParams {
+  id: string
+}
+
 const CategoryItem: React.FC<CategoryItemProps> = () => {
 
-  const [data, setData] = React.useState(null);
+  const [data, setData] = React.useState<any>(null);
 
-  let { id } = useParams();
-  const history = useHistory();
+  let { id } = useParams<RouteParams>();
+  let articleId = parseInt(id);
 
   // 根据路由传过来的 id 获取文章
   async function getData() {
-    id++;
-    const res = await api.article.getArticleByTypeId(id);
+    articleId++;
+    const res = await api.article.getArticleByTypeId(articleId);
     console.log(res);
     setData(res.data.data);
   }
@@ -37,17 +43,21 @@ const CategoryItem: React.FC<CategoryItemProps> = () => {
         <div className='w-full lg:w-3/5  mx-5  py-10 pr-10 flex start'>
           <Timeline mode="left" >
             {
-              data && data.map((item, index) => (
+              data && data.map((item: any, index: number) => (
+
 
                 <Timeline.Item
                   label={moment(item.createTime).format('YYYY-MM-DD')}
                   key={index}
                   className="cursor-pointer"
-                  onClick={() => history.push(`/detail/${item.id}`)}
+                // onClick={() => history.push(`/detail/${item.id}`)}
                 >
-                  <div className='text-lg titleTranslate'>{item.title}</div>
-                  <div className='categoryItem-text-overfow'>{item.introduce}</div>
+                  <Link to={`/detail/${item.id}`}>
+                    <div className='text-lg titleTranslate'>{item.title}</div>
+                    <div className='categoryItem-text-overfow'>{item.introduce}</div>
+                  </Link>
                 </Timeline.Item>
+
 
               ))
             }
@@ -59,7 +69,7 @@ const CategoryItem: React.FC<CategoryItemProps> = () => {
         </div>
       </div>
 
-    </div>
+    </div >
   );
 }
 

@@ -1,61 +1,62 @@
 import * as React from 'react';
+import { Link, useHistory } from 'react-router-dom'
 import './nav.less'
-import { Link } from 'react-router-dom'
+import useDark from '../../utils/hooks/useDark';
 
 export interface NavProps {
 
 }
 
+const headerLists = [
+  {
+    title: '主页',
+    path: '/'
+  },
+  {
+    title: '文章类别',
+    path: '/category'
+  },
+  {
+    title: '关于我',
+    path: '/aboutme'
+  }
+];
+
+const NameClass = 'font-bold text-purple-600';
+const hoverTransition = 'transition-colors ease-in-out duration-[150]';
+const iconClass = 'h-10 w-10 px-2 py-2 hover:bg-purple-200 text-purple-600 rounded-full';
+
 const Nav: React.FC<NavProps> = () => {
 
+  const history = useHistory();
+
+  const [theme, setTheme] = useDark();
+
   return (
-    <div className='h-16'>
-      <div className='w-full h-16 bg-white bg-opacity-50 shadow-navShadow ground-glass fixed'>
-        <div className='px-16 flex justify-between h-full items-center'>
-          <div className='font-bold w-64'>
-            <Link to='/'>
-              <div className='float_shadow'>Ha0ran的博客</div>
-            </Link>
+    <div className='h-16 grid grid-cols-2'>
+      <div className='w-64 flex justify-center items-center'>
+        <span className={`${NameClass} text-2xl`}>｛</span>
+        <Link to='/'><div className={`${NameClass} mx-2`}>Ha0ran</div></Link>
+        <span className={`${NameClass} text-2xl`}>｝</span>
+      </div>
+      <div className='flex justify-center space-x-20 items-center'>
+        {headerLists.map(item => (
+          <div
+            onClick={() => history.push(`${item.path}`)}
+            key={item.title}
+            className={`text-purple-600 hover:bg-purple-200 font-semibold cursor-pointer px-4 py-2 rounded-md whitespace-nowrap ${hoverTransition}`}>
+            {item.title}
           </div>
-          <div className='hidden sm:flex sm:justify-around sm:w-2/5'>
-            <div className='flex underline_from_center'>
-              <i className='navicon hidden lg:inline'>&#xe61d;</i>
-              <span>搜索</span>
-            </div>
-            <div className='flex underline_from_center'>
-              <Link to="/aboutme">
-                <i className='navicon hidden lg:inline'>&#xe606;</i>
-                <span>关于</span>
-              </Link>
-            </div>
-
-            <div className='flex underline_from_center'>
-              <i className='navicon hidden lg:inline'>&#xe874;</i>
-              <span>友链</span>
-            </div>
-
-            <div className='flex underline_from_center'>
-              {/* <Link to='/message'> */}
-              <i className='navicon hidden lg:inline'>&#xe693;</i>
-              <span>留言</span>
-              {/* </Link> */}
-            </div>
-
-            <div className='flex underline_from_center'>
-              <Link to='/category'>
-                <i className='navicon hidden lg:inline'>&#xe69b;</i>
-                <span>分类</span>
-              </Link>
-            </div>
-
-            <div className='flex underline_from_center'>
-              <Link to='/'>
-                <i className='navicon hidden lg:inline'>&#xe527;</i>
-                <span>首页</span>
-              </Link>
-            </div>
-          </div>
-        </div>
+        ))}
+        {
+          theme === 'light'
+            ? <svg onClick={() => setTheme('dark')} xmlns="http://www.w3.org/2000/svg" className={`${iconClass} ${hoverTransition} animate-spin`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+            </svg>
+            : <svg onClick={() => setTheme('light')} xmlns="http://www.w3.org/2000/svg" className={`${iconClass} ${hoverTransition}`} viewBox="0 0 20 20" fill="currentColor">
+              <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
+            </svg>
+        }
       </div>
     </div>
   );

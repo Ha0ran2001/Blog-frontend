@@ -3,11 +3,12 @@ module.exports = {
     './index.html',
     './src/**/*.{js,jsx,ts,tsx}',
   ],
+  mode: 'jit',
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
       colors: {
-        nav: 'rgba(255, 255, 255, .5)',
+        nav: 'rgba(111, 54, 187, 0.125)',
         bborder: '#49B1F5',
         footer: '#eee',
       },
