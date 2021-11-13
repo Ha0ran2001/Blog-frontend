@@ -1,38 +1,41 @@
 import * as React from 'react';
 import { useHistory } from 'react-router-dom';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 import './list.css';
-
+import { hoverTransition } from '../nav/Nav'
 
 export interface ListProps {
-  id: number,
-  title: string,
-  introduce: string,
-  createTime: number | null,
-  visitCount: number | null,
-  typeName: string,
+  id?: number,
+  title?: string,
+  introduce?: string,
+  createTime?: number | null,
+  visitCount?: number | null,
+  typeName?: string,
 }
 
-const List: React.FC<ListProps> = ({ id, title, introduce, createTime, visitCount, typeName }) => {
-
+const List: React.FC<ListProps> = ({
+  title,
+  createTime,
+  typeName
+}) => {
+  AOS.init({
+    duration: 1200,
+  })
   const history = useHistory();
 
 
   return (
-    <div className="p-4 sm:p-10 border-b-2 bg-white bg-opacity-50">
-      <div className="text-2xl sm:text-3xl md:text-4xl">{title}</div>
-      <div className="text-overflow text-base md:text-xl my-5 text-gray-400">{introduce}</div>
-      <div className="flex justify-between">
-        <div className="flex items-center text-gray-300 text-xs sm:text-base">
-          <span>Ha0ran</span>
-          <span className="text-3xl mx-1">·</span>
-          <span>{createTime}</span>
-          <span className="text-3xl mx-1">·</span>
-          <span>{typeName}</span>
-        </div>
-        <div className="text-xl arrow-hidden cursor-pointer" onClick={() => history.push(`/detail/${id}`)}>
-          <span className='hidden sm:inline'>查看这篇</span>
-          <i className="arrow">&#xe60c;</i>
-        </div>
+    <div data-aos="zoom-in" className={`flex flex-col justify-around my-5 border-[1px] px-5 py-3 w-[400px] h-[300px] hover:border-purple-500 transition-colors ease-in-out duration-1000`}>
+      {/* 标题 */}
+      <header className='text-center text-2xl font-bold'>{title}</header>
+      {/* 分类 */}
+      <hr className='mx-7 my-5' />
+      <div className='text-center text-xl text-gray-600'>{typeName}</div>
+      {/* 名字、时间 */}
+      <div className='flex justify-between'>
+        <div className='text-gray-300 text-sm'>{createTime}</div>
+        <div className='text-gray-300 text-sm'>Ha0ran</div>
       </div>
     </div>
   );

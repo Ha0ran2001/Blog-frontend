@@ -23,7 +23,7 @@ const headerLists = [
 ];
 
 const NameClass = 'font-bold text-purple-600';
-const hoverTransition = 'transition-colors ease-in-out duration-[150]';
+export const hoverTransition = 'transition-colors ease-in-out duration-500';
 const iconClass = 'h-10 w-10 px-2 py-2 hover:bg-purple-200 text-purple-600 rounded-full';
 
 const Nav: React.FC<NavProps> = () => {
@@ -32,8 +32,29 @@ const Nav: React.FC<NavProps> = () => {
 
   const [theme, setTheme] = useDark();
 
+  const headerRef = React.useRef<HTMLDivElement>(null);
+
+  /** 页面移动 header 高度变化 */
+  React.useEffect(() => {
+    const header = headerRef.current as HTMLDivElement;
+    let headerHeight = header?.offsetHeight;
+    const scrollChangeHeight = () => {
+      if (window.scrollY > headerHeight + 150) {
+        header.classList.add('active');
+      } else {
+        header.classList.remove('active');
+      }
+    }
+
+    window.addEventListener('scroll', scrollChangeHeight, true);
+
+    return () => {
+      window.removeEventListener('scroll', scrollChangeHeight, true);
+    }
+  }, [])
+
   return (
-    <div className='h-16 grid grid-cols-2'>
+    <div className='h-24 grid grid-cols-2 sticky top-0 transition-all duration-100 ease-in-out' ref={headerRef}>
       <div className='w-64 flex justify-center items-center'>
         <span className={`${NameClass} text-2xl`}>｛</span>
         <Link to='/'><div className={`${NameClass} mx-2`}>Ha0ran</div></Link>

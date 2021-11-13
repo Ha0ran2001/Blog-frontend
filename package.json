@@ -7,10 +7,12 @@
     "serve": "vite preview"
   },
   "dependencies": {
+    "@types/aos": "^3.0.4",
     "@types/highlightjs": "^9.12.2",
     "@types/lodash": "^4.14.172",
     "@types/marked": "^2.0.4",
     "antd": "^4.16.10",
+    "aos": "^2.3.4",
     "axios": "^0.21.1",
     "highlightjs": "^9.16.2",
     "lodash": "^4.17.21",

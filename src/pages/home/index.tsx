@@ -1,9 +1,8 @@
 import * as React from 'react';
-import { Pagination } from 'antd';
+
 
 import CardInfo from '../../components/Card-info';
 import List from '../../components/List';
-
 import './home.css'
 import api from '../../api';
 
@@ -12,17 +11,18 @@ export interface HomeProps {
 
 }
 
-type Article = {
-  id: number,
-  title: string,
-  introduce: string,
-  createTime: number | null,
-  visitCount: number | null,
-  typeName: string,
+interface Article {
+  id?: number,
+  title?: string,
+  introduce?: string,
+  createTime?: number | null,
+  visitCount?: number | null,
+  typeName?: string,
 }
 
 const Home: React.FC<HomeProps> = () => {
-  const [data, setData] = React.useState<Article[] | null>(null);
+
+  const [data, setData] = React.useState<Article[]>();
 
   React.useEffect(() => {
     // 获取文章列表
@@ -30,42 +30,37 @@ const Home: React.FC<HomeProps> = () => {
       const results = await api.article.getArticles();
       setData(results.data.data);
       console.log(results);
-
     }
     fetchData();
   }, [])
 
   return (
-    // <div id="home">
+    <div className='pb-44 pt-5 min-h-screen grid grid-cols-12'>
+      <div className='col-span-2'></div>
+      {/* 左边栏 内容栏 */}
+      <div className='col-span-7 grid grid-cols-2 gap-6'>
+        {
+          data && data.map((item, index) => (
+            <List
 
-    <div className='pb-44 pt-5 min-h-screen'>
-      <div className='flex flex-col md:flex-row md:justify-around lg:justify-center'>
-        {/* 左边栏 内容栏 */}
-        <div className='md:w-3/5 lg:mr-3 w-full'>
-          {
-            data && data.map((item, index) => (
-              <div>
-                <List
-                  id={item.id}
-                  title={item.title}
-                  introduce={item.introduce}
-                  createTime={item.createTime}
-                  visitCount={item.visitCount}
-                  typeName={item.typeName}
-                  key={index}
-                />
-              </div>
-            ))
-          }
-        </div>
-        {/* 右边栏 */}
-        <div className='w-full md:w-1/3 lg:w-1/6'>
-          {/* 个人信息  */}
-          <CardInfo />
-
-        </div>
+              id={item.id}
+              title={item.title}
+              introduce={item.introduce}
+              createTime={item.createTime}
+              visitCount={item.visitCount}
+              typeName={item.typeName}
+              key={index}
+            />
+          ))
+        }
+      </div>
+      {/* 右边栏 */}
+      <div className='col-span-3'>
+        {/* 个人信息  */}
+        <CardInfo />
       </div>
     </div>
+
   );
 }
 

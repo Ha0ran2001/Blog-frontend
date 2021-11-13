@@ -6,7 +6,11 @@
 @tailwind components;
 @tailwind utilities;
 
-
+@layer components {
+  .active {
+    @apply bg-[#ede5f8] h-16 shadow-md !important;
+  }
+}
 
 body {
   box-sizing: border-box;

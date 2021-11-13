@@ -1,4 +1,6 @@
 import * as React from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 import avatar from '../../assets/avatar.jpg'
 import CyberpunkButton from '../CyberpunkButton';
 import './card-info.less'
@@ -15,8 +17,13 @@ export interface CardInfoProps {
 }
 
 const CardInfo: React.FC<CardInfoProps> = () => {
+
+  AOS.init({
+    duration: 1200
+  })
+
   return (
-    <div className='w-full flex justify-center items-center flex-col px-10 py-5 bg-white bg-opacity-50 hover:shadow-sm'>
+    <div data-aos="slide-left" className='w-full flex justify-center items-center flex-col px-10 py-5 bg-white bg-opacity-50 hover:shadow-sm'>
       {/* 头像 昵称 */}
       <div className='flex flex-col justify-center items-center'>
         <div className='w-28 h-28'>
