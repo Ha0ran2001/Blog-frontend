@@ -62,12 +62,13 @@ const Nav: React.FC<NavProps> = () => {
       </div>
       <div className='flex justify-center space-x-20 items-center'>
         {headerLists.map(item => (
-          <div
-            onClick={() => history.push(`${item.path}`)}
+          <Link
+            to={`${item.path}`}
+            // onClick={() => history.push(`${item.path}`)}
             key={item.title}
             className={`text-purple-600 hover:bg-purple-200 font-semibold cursor-pointer px-4 py-2 rounded-md whitespace-nowrap ${hoverTransition}`}>
             {item.title}
-          </div>
+          </Link>
         ))}
         {
           theme === 'light'

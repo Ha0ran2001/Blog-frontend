@@ -5,7 +5,7 @@ import {
   Route,
   Switch
 } from 'react-router-dom'
-
+import AnimatedCursor from "react-animated-cursor"
 
 import Nav from './components/nav/Nav'
 import Footer from './components/footer/Footer'
@@ -23,6 +23,14 @@ function App() {
   return (
     <Router>
       <div className="">
+        <AnimatedCursor
+          color='193, 11, 111'
+          innerSize={15}
+          outerSize={15}
+          outerAlpha={0.2}
+          innerScale={0.7}
+          outerScale={4}
+        />
         <Nav />
         <Switch>
           <Route path='/' exact><Home /></Route>
