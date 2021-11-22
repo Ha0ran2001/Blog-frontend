@@ -15,6 +15,7 @@ import Category from './pages/category';
 import CategoryItem from './pages/categoryItem';
 import AboutMe from './pages/aboutMe';
 import Message from './pages/message';
+import SideRight from './components/SideRight';
 
 
 function App() {
@@ -22,25 +23,27 @@ function App() {
 
   return (
     <Router>
-      <div className="">
-        <AnimatedCursor
+      <div className="max-h-screen grid justify-center">
+        {/* <AnimatedCursor
           color='193, 11, 111'
           innerSize={15}
           outerSize={15}
           outerAlpha={0.2}
           innerScale={0.7}
           outerScale={4}
-        />
+        /> */}
         <Nav />
-        <Switch>
-          <Route path='/' exact><Home /></Route>
-          <Route path='/detail/:id'><BlogDetail /></Route>
-          <Route path='/category' ><Category /></Route>
-          <Route path='/categoryItem/:name/:id' ><CategoryItem /></Route>
-          <Route path='/aboutme' ><AboutMe /></Route>
-          <Route path='/message' ><Message /></Route>
-        </Switch>
-        <Footer />
+        <div className='w-[60vw]'>
+          <Switch>
+            <Route path='/' exact><Home /></Route>
+            <Route path='/detail/:id'><BlogDetail /></Route>
+            <Route path='/category' ><Category /></Route>
+            <Route path='/categoryItem/:name/:id' ><CategoryItem /></Route>
+            <Route path='/aboutme' ><AboutMe /></Route>
+            <Route path='/message' ><Message /></Route>
+          </Switch>
+        </div>
+        <SideRight />
       </div>
     </Router>
   )

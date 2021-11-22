@@ -1,6 +1,3 @@
-/* @import "tailwindcss/base";
-@import "tailwindcss/components";
-@import "tailwindcss/utilities"; */
 
 @tailwind base;
 @tailwind components;
@@ -9,6 +6,10 @@
 @layer components {
   .active {
     @apply bg-[#ede5f8] h-16 shadow-md !important;
+  }
+
+  .scroll-hidden::-webkit-scrollbar {
+    display: none;
   }
 }
 
@@ -79,12 +80,12 @@ pre >code{
   width: 100%;
   border:0px !important;
   background-color: #283646;
-  // background-color: #18314f; // #003049
-  // background-color: #01161e;
-  // background-color: #282C34;
+   background-color: #18314f;  
+   background-color: #01161e;
+   background-color: #282C34;
 
 
-  color:#FFF;
+  color:#fff;
   padding: 10px 20px 10px 10px;
   overflow-x: auto;
 

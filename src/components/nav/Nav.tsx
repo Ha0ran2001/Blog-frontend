@@ -22,9 +22,9 @@ const headerLists = [
   }
 ];
 
-const NameClass = 'font-bold text-purple-600';
+const NameClass = 'font-bold text-gray-900';
 export const hoverTransition = 'transition-colors ease-in-out duration-500';
-const iconClass = 'h-10 w-10 px-2 py-2 hover:bg-purple-200 text-purple-600 rounded-full';
+const iconClass = 'h-10 w-10 px-2 py-2 hover:bg-gray-200 text-gray-600 rounded-full';
 
 const Nav: React.FC<NavProps> = () => {
 
@@ -35,41 +35,43 @@ const Nav: React.FC<NavProps> = () => {
   const headerRef = React.useRef<HTMLDivElement>(null);
 
   /** 页面移动 header 高度变化 */
-  React.useEffect(() => {
-    const header = headerRef.current as HTMLDivElement;
-    let headerHeight = header?.offsetHeight;
-    const scrollChangeHeight = () => {
-      if (window.scrollY > headerHeight + 150) {
-        header.classList.add('active');
-      } else {
-        header.classList.remove('active');
-      }
-    }
+  // React.useEffect(() => {
+  //   const header = headerRef.current as HTMLDivElement;
+  //   let headerHeight = header?.offsetHeight;
+  //   const scrollChangeHeight = () => {
+  //     if (window.scrollY > headerHeight + 150) {
+  //       header.classList.add('active');
+  //     } else {
+  //       header.classList.remove('active');
+  //     }
+  //   }
 
-    window.addEventListener('scroll', scrollChangeHeight, true);
+  //   window.addEventListener('scroll', scrollChangeHeight, true);
 
-    return () => {
-      window.removeEventListener('scroll', scrollChangeHeight, true);
-    }
-  }, [])
+  //   return () => {
+  //     window.removeEventListener('scroll', scrollChangeHeight, true);
+  //   }
+  // }, [])
 
   return (
-    <div className='h-24 grid grid-cols-2 sticky top-0 transition-all duration-100 ease-in-out' ref={headerRef}>
-      <div className='w-64 flex justify-center items-center'>
+    <div className='min-h-screen fixed flex flex-col top-0 left-0 ' ref={headerRef}>
+      <div className='flex justify-center items-center'>
         <span className={`${NameClass} text-2xl`}>｛</span>
         <Link to='/'><div className={`${NameClass} mx-2`}>Ha0ran</div></Link>
         <span className={`${NameClass} text-2xl`}>｝</span>
       </div>
-      <div className='flex justify-center space-x-20 items-center'>
+
+      <div className='flex flex-col flex-1 justify-around items-center'>
         {headerLists.map(item => (
           <Link
             to={`${item.path}`}
             // onClick={() => history.push(`${item.path}`)}
             key={item.title}
-            className={`text-purple-600 hover:bg-purple-200 font-semibold cursor-pointer px-4 py-2 rounded-md whitespace-nowrap ${hoverTransition}`}>
+            className={`text-gray-300 cursor-pointer px-4 py-2 rounded-md whitespace-nowrap transform -rotate-90`}>
             {item.title}
           </Link>
         ))}
+
         {
           theme === 'light'
             ? <svg onClick={() => setTheme('dark')} xmlns="http://www.w3.org/2000/svg" className={`${iconClass} ${hoverTransition} animate-spin`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -79,6 +81,7 @@ const Nav: React.FC<NavProps> = () => {
               <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
             </svg>
         }
+
       </div>
     </div>
   );

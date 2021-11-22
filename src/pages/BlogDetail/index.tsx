@@ -30,10 +30,10 @@ const BlogDetail = () => {
   const html = toBeMarkdown(content).html;
 
   return (
-    <div className='pb-44 pt-5 min-h-screen'>
+    <div className='pb-44 pt-5 px-[100px] min-h-screen '>
       <div className='flex flex-col md:flex-row md:justify-center'>
         {/* 左边栏 */}
-        <div className='w-full md:w-3/5  md:mx-5  bg-white bg-opacity-50 p-2 md:p-10'>
+        <div className='w-full  bg-white bg-opacity-50 p-2 md:p-10'>
           <div className='text-2xl md:text-3xl lg:text-5xl text-center'>{title}</div>
           {
             content && <div
@@ -43,9 +43,9 @@ const BlogDetail = () => {
           }
         </div>
         {/* 右边栏 */}
-        <div className='w-full md:w-1/6 '>
-          {/* 个人信息 */}
-          <CardInfo />
+        {/* <div className='w-full md:w-1/6 '> */}
+        {/* 个人信息 */}
+        {/* <CardInfo />
           <Affix offsetTop={100} className="hidden md:block md:mt-5">
             <div className='bg-white py-4 px-1 bg-opacity-50'>
               <div className=' text-gray-500 text-xl ml-2'>目录</div>
@@ -53,9 +53,8 @@ const BlogDetail = () => {
                 {tocify}
               </div>
             </div>
-          </Affix>
-
-        </div>
+          </Affix> */}
+        {/* </div> */}
       </div>
 
     </div>
