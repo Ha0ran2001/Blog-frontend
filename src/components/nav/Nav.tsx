@@ -34,25 +34,6 @@ const Nav: React.FC<NavProps> = () => {
 
   const headerRef = React.useRef<HTMLDivElement>(null);
 
-  /** 页面移动 header 高度变化 */
-  // React.useEffect(() => {
-  //   const header = headerRef.current as HTMLDivElement;
-  //   let headerHeight = header?.offsetHeight;
-  //   const scrollChangeHeight = () => {
-  //     if (window.scrollY > headerHeight + 150) {
-  //       header.classList.add('active');
-  //     } else {
-  //       header.classList.remove('active');
-  //     }
-  //   }
-
-  //   window.addEventListener('scroll', scrollChangeHeight, true);
-
-  //   return () => {
-  //     window.removeEventListener('scroll', scrollChangeHeight, true);
-  //   }
-  // }, [])
-
   return (
     <div className='min-h-screen fixed flex flex-col top-0 left-0 ' ref={headerRef}>
       <div className='flex justify-center items-center'>

@@ -11,6 +11,10 @@
   .scroll-hidden::-webkit-scrollbar {
     display: none;
   }
+
+  /* .blogDetailActive {
+    @apply fixed top-0 h-16 !important;
+  } */
 }
 
 body {
@@ -28,6 +32,14 @@ h1 {
   font-weight: bolder;
 }
 
+/* .blogDetailActive {
+  display: fixed !important;
+  top: 0;
+  height: 64px;
+  background: blue;
+  z-index: 999;
+} */
+
 
 h2 {
   margin: 1rem 0;
@@ -41,6 +53,8 @@ h3 {
   font-weight: bold;
   font-size: 0.875rem;
 }
+
+
 
 @media screen and(min-width: 640px) {
   h1 {

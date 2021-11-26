@@ -30,7 +30,8 @@ const List: React.FC<ListProps> = ({
     <div
       onClick={() => history.push(`/detail/${id}`)}
       data-aos="zoom-in"
-      className={`flex flex-col justify-around my-5 border-[1px] px-5 py-3 w-[400px] h-[300px] hover:border-gray-500 transition-colors ease-in-out duration-1000`}>
+      className={`flex flex-col justify-around my-5 border-[1px] px-5 py-3 w-[400px] h-[300px] hover:border-gray-500 transition-colors ease-in-out duration-1000`}
+    >
       {/* 标题 */}
       <header className='text-center text-2xl font-bold'>{title}</header>
       {/* 分类 */}
