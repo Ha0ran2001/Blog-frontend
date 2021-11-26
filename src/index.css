@@ -28,6 +28,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+* {
+  transition: background-color 1s ease-in-out;
+}
+
 h1 {
   font-size: 1.5rem;
   font-weight: bolder;
@@ -45,7 +49,6 @@ h3 {
   font-weight: bold;
   font-size: 0.875rem;
 }
-
 
 
 @media screen and(min-width: 640px) {
@@ -77,26 +80,33 @@ li {
 }
 
 pre{
-  background-color: #fff !important;
-  border-radius: 10px;
-  padding: 10px;
-  box-shadow: 0 0 2px 2px rgb(0 0 0 / 55%);
+  /* background-color: #fff !important; */
+  /* border-radius: 10px; */
+  /* box-shadow: 0 0 2px 2px rgb(0 0 0 / 55%); */
 }
-pre >code{
+pre>code{
   width: 100%;
   border:0px !important;
   background-color: #283646;
-   background-color: #18314f;  
-   background-color: #01161e;
-   background-color: #282C34;
-
-
+  /* background-color: #18314f;   */
+  /* background-color: #01161e; */
+  /* background-color: #282C34; */
   color:#fff;
   padding: 10px 20px 10px 10px;
-  overflow-x: auto;
-
-
+  overflow-x: hidden;
 }
+
+pre>code:hover {
+  overflow-x: auto;
+}
+
+pre>code::-webkit-scrollbar {
+  height: 10px;
+}
+pre>code::-webkit-scrollbar-track {
+  display: none;
+}
+
 code {
   width: inherit;
   display: inline-block ;
@@ -104,10 +114,7 @@ code {
   border-radius:3px;
   font-size: 14px;
   font-family: 'JetBrains Mono', monospace;
-  padding-left: 5px;
-  padding-right: 5px;
   color:#4f4f4f;
-  margin: 0px 3px;
   word-wrap: break-word;
 }
 
