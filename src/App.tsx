@@ -23,7 +23,7 @@ function App() {
 
   return (
     <Router>
-      <div className="max-h-screen grid justify-center">
+      <div className="max-h-screen grid justify-center dark:bg-gray-900">
         {/* <AnimatedCursor
           color='193, 11, 111'
           innerSize={15}
