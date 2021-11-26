@@ -22,7 +22,7 @@ const headerLists = [
   }
 ];
 
-const NameClass = 'font-bold text-gray-900';
+const NameClass = 'font-bold text-gray-900 dark:text-gray-300';
 export const hoverTransition = 'transition-colors ease-in-out duration-500';
 const iconClass = 'h-10 w-10 px-2 py-2 hover:bg-gray-200 text-gray-600 rounded-full';
 
@@ -35,10 +35,10 @@ const Nav: React.FC<NavProps> = () => {
   const headerRef = React.useRef<HTMLDivElement>(null);
 
   return (
-    <div className='min-h-screen fixed flex flex-col top-0 left-0 ' ref={headerRef}>
-      <div className='flex justify-center items-center'>
+    <div className='min-h-screen fixed flex flex-col top-0 left-0' ref={headerRef}>
+      <div className='flex justify-center items-center '>
         <span className={`${NameClass} text-2xl`}>｛</span>
-        <Link to='/'><div className={`${NameClass} mx-2`}>Ha0ran</div></Link>
+        <Link to='/'><div className={`${NameClass} mx-2 `}>Ha0ran</div></Link>
         <span className={`${NameClass} text-2xl`}>｝</span>
       </div>
 

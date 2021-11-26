@@ -23,7 +23,7 @@ function App() {
 
   return (
     <Router>
-      <div className="max-h-screen grid justify-center dark:bg-gray-900">
+      <div className="max-h-screen grid justify-center ">
         {/* <AnimatedCursor
           color='193, 11, 111'
           innerSize={15}
@@ -33,7 +33,7 @@ function App() {
           outerScale={4}
         /> */}
         <Nav />
-        <div className='w-[60vw]'>
+        <div className='w-full'>
           <Switch>
             <Route path='/' exact><Home /></Route>
             <Route path='/detail/:id'><BlogDetail /></Route>

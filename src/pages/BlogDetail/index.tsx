@@ -54,8 +54,8 @@ const BlogDetail = () => {
   const html = toBeMarkdown(content).html;
 
   return (
-    <div className='pb-44 px-[100px] min-h-screen '>
-      <div className='h-20 flex justify-between items-center px-10' ref={headerRef}>
+    <div className='pb-44 px-[25vw] w-screen min-h-screen dark:bg-gray-900'>
+      <div className='h-20 flex justify-between items-center' ref={headerRef}>
         {/* <- back 类型 */}
         <div className='flex flex-col w-16 space-y-4'>
           <div onClick={() => history.goBack()} className='flex text-gray-300 hover:text-gray-700 cursor-pointer justify-center items-center'>
@@ -64,22 +64,22 @@ const BlogDetail = () => {
             </svg>
             Back
           </div>
-          <div className='tracking-[5px]'>类型</div>
+          <div className='tracking-[5px] dark:text-gray-400'>类型</div>
         </div>
         {/* 文字大小 时间，author */}
         <div className='flex flex-col space-y-4'>
-          <div className='space-x-4'>
+          <div className='space-x-4 dark:text-gray-500'>
             <span className='text-sm'>A</span>
             <span className='text-xl'>A</span>
             <span className='text-2xl'>A</span>
           </div>
-          <div>2021/11/26</div>
+          <div className='dark:text-gray-400'>2021/11/26</div>
         </div>
       </div>
-      <div className='flex flex-col md:flex-row md:justify-center'>
+      <div className=''>
         {/* 左边栏 */}
-        <div className='w-full  bg-white bg-opacity-50 p-2 md:p-10'>
-          <div className='text-2xl md:text-3xl lg:text-5xl text-center'>{title}</div>
+        <div className='dark:text-gray-300'>
+          <div className='text-5xl text-center dark:text-gray-200'>{title}</div>
           {
             content && <div
               dangerouslySetInnerHTML={{ __html: html }}
@@ -101,7 +101,6 @@ const BlogDetail = () => {
           </Affix> */}
         {/* </div> */}
       </div>
-
     </div>
   );
 }

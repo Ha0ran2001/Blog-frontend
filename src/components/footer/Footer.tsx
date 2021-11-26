@@ -9,7 +9,7 @@ export interface FooterProps {
 const Footer: React.FC<FooterProps> = () => {
 
   return (
-    <div className='my-16 flex flex-col justify-center items-center clear-both'>
+    <div className='py-16 flex flex-col justify-center items-center clear-both'>
       <div className='text-gray-400'>
         <span>©2021 - 2021</span>
         <i className='iconfont mx-1'>&#xe637;</i>

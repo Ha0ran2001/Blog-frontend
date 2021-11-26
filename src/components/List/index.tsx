@@ -33,10 +33,10 @@ const List: React.FC<ListProps> = ({
       className={`flex flex-col justify-around my-5 border-[1px] px-5 py-3 w-[400px] h-[300px] hover:border-gray-500 transition-colors ease-in-out duration-1000`}
     >
       {/* 标题 */}
-      <header className='text-center text-2xl font-bold'>{title}</header>
+      <header className='text-center text-2xl font-bold dark:text-gray-300'>{title}</header>
       {/* 分类 */}
       <hr className='mx-7 my-5' />
-      <div className='text-center text-xl text-gray-600'>{typeName}</div>
+      <div className='text-center text-xl text-gray-600 dark:text-gray-500'>{typeName}</div>
       {/* 名字、时间 */}
       <div className='flex justify-between'>
         <div className='text-gray-300 text-sm'>{createTime}</div>
